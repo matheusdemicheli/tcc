@@ -1,0 +1,66 @@
+[
+{
+    "model": "webservice.ong",
+    "pk": 1,
+    "fields": {
+        "nome": "Amor Vira-Lata",
+        "sigla": "AVL",
+        "descricao": "Auxilia na ajuda para animais de rua",
+        "estado": 23,
+        "cidade": 3945,
+        "imagem": "amor_vira_lata.png",
+        "site": "http://www.amorviralata.com.br/",
+        "banco": 1,
+        "agencia": 1234,
+        "conta": 123456
+    }
+},
+{
+    "model": "webservice.ong",
+    "pk": 2,
+    "fields": {
+        "nome": "APAE",
+        "sigla": "APAE",
+        "descricao": "A APAE de Caxias do Sul \u00e9 uma entidade beneficente de assist\u00eancia social que presta servi\u00e7os",
+        "estado": 23,
+        "cidade": 3945,
+        "imagem": "amor_vira_lata_ygnW7Vj.png",
+        "site": "http://www.apaecaxiasdosul.org.br/site/",
+        "banco": 1,
+        "agencia": 1,
+        "conta": 1
+    }
+},
+{
+    "model": "webservice.ong",
+    "pk": 3,
+    "fields": {
+        "nome": "ONG SC",
+        "sigla": "ONGSC",
+        "descricao": "ONG de Santa Catarina",
+        "estado": 24,
+        "cidade": 4413,
+        "imagem": "amor_vira_lata_ygnW7Vj.png",
+        "site": "http://www.apaecaxiasdosul.org.br/site/",
+        "banco": 1,
+        "agencia": 1,
+        "conta": 1
+    }
+},
+{
+    "model": "webservice.ong",
+    "pk": 4,
+    "fields": {
+        "nome": "ONG SC 2",
+        "sigla": "ONGSC2",
+        "descricao": "ONG de Santa Catarina de outra cidade",
+        "estado": 24,
+        "cidade": 4414,
+        "imagem": "amor_vira_lata_ygnW7Vj.png",
+        "site": "http://www.apaecaxiasdosul.org.br/site/",
+        "banco": 1,
+        "agencia": 1,
+        "conta": 1
+    }
+}
+]

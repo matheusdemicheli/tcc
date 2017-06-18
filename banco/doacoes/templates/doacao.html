@@ -1,0 +1,28 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Serviço bancário</title>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        var buscar_dados = function(){
+            /* Busca os dados da Abong. */
+            $.ajax({
+                url: "https://127.0.0.1:8000/ongs/",
+                data: {},
+                success: exibir_dados,
+            });
+        }
+        var exibir_dados = function(dados){
+            /* Exibe os dados na página. */
+            $('#conteudo').html(dados);
+        }
+        $( window ).load(buscar_dados);
+    </script>
+</head>
+<body>
+    <h1>Módulo de Doação Bancária</h1>
+    <section id="conteudo"></section>
+</body>
+</html>

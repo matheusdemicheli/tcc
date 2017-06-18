@@ -1,0 +1,218 @@
+[
+{
+    "model": "webservice.estado",
+    "pk": 1,
+    "fields": {
+        "sigla": "ac",
+        "nome": "Acre"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 2,
+    "fields": {
+        "sigla": "al",
+        "nome": "Alagoas"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 3,
+    "fields": {
+        "sigla": "am",
+        "nome": "Amazonas"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 4,
+    "fields": {
+        "sigla": "ap",
+        "nome": "Amap\u00e1"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 5,
+    "fields": {
+        "sigla": "ba",
+        "nome": "Bahia"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 6,
+    "fields": {
+        "sigla": "ce",
+        "nome": "Cear\u00e1"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 7,
+    "fields": {
+        "sigla": "df",
+        "nome": "Distrito Federal"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 8,
+    "fields": {
+        "sigla": "es",
+        "nome": "Esp\u00edrito Santo"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 9,
+    "fields": {
+        "sigla": "go",
+        "nome": "Goi\u00e1s"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 10,
+    "fields": {
+        "sigla": "ma",
+        "nome": "Maranh\u00e3o"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 11,
+    "fields": {
+        "sigla": "mg",
+        "nome": "Minas Gerais"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 12,
+    "fields": {
+        "sigla": "ms",
+        "nome": "Mato Grosso do Sul"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 13,
+    "fields": {
+        "sigla": "mt",
+        "nome": "Mato Grosso"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 14,
+    "fields": {
+        "sigla": "pa",
+        "nome": "Par\u00e1"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 15,
+    "fields": {
+        "sigla": "pb",
+        "nome": "Para\u00edba"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 16,
+    "fields": {
+        "sigla": "pe",
+        "nome": "Pernambuco"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 17,
+    "fields": {
+        "sigla": "pi",
+        "nome": "Piau\u00ed"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 18,
+    "fields": {
+        "sigla": "pr",
+        "nome": "Paran\u00e1"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 19,
+    "fields": {
+        "sigla": "rj",
+        "nome": "Rio de Janeiro"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 20,
+    "fields": {
+        "sigla": "rn",
+        "nome": "Rio Grande do Norte"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 21,
+    "fields": {
+        "sigla": "ro",
+        "nome": "Rond\u00f4nia"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 22,
+    "fields": {
+        "sigla": "rr",
+        "nome": "Roraima"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 23,
+    "fields": {
+        "sigla": "rs",
+        "nome": "Rio Grande do Sul"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 24,
+    "fields": {
+        "sigla": "sc",
+        "nome": "Santa Catarina"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 25,
+    "fields": {
+        "sigla": "se",
+        "nome": "Sergipe"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 26,
+    "fields": {
+        "sigla": "sp",
+        "nome": "S\u00e3o Paulo"
+    }
+},
+{
+    "model": "webservice.estado",
+    "pk": 27,
+    "fields": {
+        "sigla": "to",
+        "nome": "Tocantins"
+    }
+}
+]

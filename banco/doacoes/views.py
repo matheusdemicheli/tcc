@@ -1,10 +1,9 @@
 #-*- coding: utf-8 -*-
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render_to_response
 
 # Create your views here.
 def doacoes(request):
     """
     View para a página de doações.
     """
-    return HttpResponse('olá')
+    return render_to_response('doacao.html', {})
