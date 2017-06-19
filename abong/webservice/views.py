@@ -1,49 +1,50 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from rest_framework import serializers, generics, filters
-from webservice import models
+from rest_framework import generics, filters
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from webservice import models, serializers, utils
 
 
-class ONGSerializer(serializers.ModelSerializer):
+@api_view(['GET'])
+def api_root(request, format=None):
     """
-    Define a representação do model ONG.
+    URLs disponíveis para acesso.
     """
-    cidade = serializers.SlugRelatedField(slug_field='slug', read_only=True)
-    estado = serializers.SlugRelatedField(slug_field='sigla', read_only=True)
+    return Response(utils.get_urls(request=request, format=format))
 
-    class Meta:
-        """
-        Definição dos campos que serão retornados pela API.
-        """
-        model = models.ONG
-        fields = [
-            'pk',
-            'nome',
-            'sigla',
-            'descricao',
-            'estado',
-            'cidade',
-            'imagem',
-            'site',
-            'banco',
-            'agencia',
-            'conta'
-        ]
+
+@api_view(['GET'])
+def urls_estados(request, format=None):
+    """
+    URLs de estados disponíveis para acesso.
+    Formato da URL: /api/ongs/{estado}/
+    """
+    return Response(utils.get_urls_estados(request=request, format=format))
+
+
+@api_view(['GET'])
+def urls_cidades(request, format=None):
+    """
+    URLs de cidades disponíveis para acesso.
+    Formato da URL: /api/ongs/{estado}/{cidade}/
+    """
+    return Response(utils.get_urls_cidades(request=request, format=format))
 
 
 class ONGDetail(generics.RetrieveAPIView):
     """
-    Retorna uma coleção de informações de uma ONG.
+    Informações de uma ONG.
     """
-    serializer_class = ONGSerializer
+    serializer_class = serializers.ONGSerializer
     queryset = models.ONG.objects.all()
 
 
 class ONGList(generics.ListAPIView):
     """
-    Retorna uma coleção de informações uma ou mais ONGs.
+    Coleção de informações de uma ou mais ONGs.
     """
-    serializer_class = ONGSerializer
+    serializer_class = serializers.ONGSerializer
     queryset = models.ONG.objects.all()
     filter_backends = (
         filters.SearchFilter,
@@ -84,7 +85,7 @@ class ONGEstadoList(ONGList):
         return queryset.filter(estado__sigla=self.kwargs['estado'])
 
 
-class ONGEstadoCidadeList(ONGList):
+class ONGEstadoCidadeList(ONGEstadoList):
     """
     Retorna uma lista de ONGs, filtrada por estado e cidade.
     """
@@ -93,8 +94,5 @@ class ONGEstadoCidadeList(ONGList):
         """
         Sobrescrito para filtrar o queryset por estado e cidade.
         """
-        queryset = super(ONGEstadoList, self).get_queryset()
-        return queryset.filter(
-            estado__sigla=self.kwargs['estado'],
-            cidade__slug=self.kwargs['cidade']
-        )
+        queryset = super(ONGEstadoCidadeList, self).get_queryset()
+        return queryset.filter(cidade__slug=self.kwargs['cidade'])
