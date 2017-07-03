@@ -1,0 +1,127 @@
+body {
+	background-image:url(images/pattern.jpg);
+	background-repeat: repeat;
+}
+
+#wrapper {
+	width:960px;
+	margin:0 auto;
+	margin-top:50px;
+}
+
+.lightmenu {
+	width:960px;
+	height:62px;
+	background: transparent;
+	background-image:url(images/light.png);
+	background-repeat: no-repeat;
+	background-position: bottom;
+	clear:both;
+	margin-bottom:60px;
+}
+.lightBlue, .lightGreen, .lightPink, .lightRed {
+	position: relative;
+	height: 62px;
+	width: 700px;
+	overflow: hidden;
+	float:left;
+}
+.lightBlue li, .lightGreen li, .lightPink li, .lightRed li {
+	float: left;
+	list-style: none;
+	width: 110px;
+	height:52px;
+	background-image:url(images/sep.png);
+	background-position: right;
+	background-repeat: no-repeat;
+	position: relative;
+	top:9px;
+}
+.lightBlue li.back {
+	background-image:url(images/blue.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 45px;
+	margin-left:-3px;
+	height: 20px;
+	z-index: 8;
+	top:5px;
+	position: absolute;
+}
+
+.lightGreen li.back {
+	background-image:url(images/green.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 45px;
+	margin-left:-3px;
+	height: 20px;
+	z-index: 8;
+	top:5px;
+	position: absolute;
+}
+
+.lightPink li.back {
+	background-image:url(images/pink.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 45px;
+	margin-left:-3px;
+	height: 20px;
+	z-index: 8;
+	top:5px;
+	position: absolute;
+}
+
+.lightRed li.back {
+	background-image:url(images/red.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 45px;
+	margin-left:-3px;
+	height: 20px;
+	z-index: 8;
+	top:5px;
+	position: absolute;
+}
+
+.lightBlue li a, .lightGreen li a, .lightPink li a, .lightRed li a {
+	font-size: 16px ;
+	font-family:"Myriad Pro", sans-serif;
+	font-weight: normal;
+	text-decoration: none;
+	width:106px;
+	padding-right: 3px;
+	color: #575757;
+	outline: none;
+	text-align: center;
+	letter-spacing: 0;
+	z-index: 10;
+	display: block;
+	float: left;
+	top:19px;
+	height: 30px;
+	position: relative;
+	overflow: hidden;
+}
+
+.lightBlue li a:hover, .lightGreen li a:hover, .lightPink li a:hover, .lightRed li a:hover {
+	color:#2c2c2c;
+}
+
+.searchbox {
+	width:197px;
+	float:right;
+	margin-right:22px;
+}
+
+.searchbox input.lightsearch {
+	background: url(images/lightsearch.png) no-repeat;
+	border: 0;
+	width: 170px; /* width of text-display area */
+	padding: 2px 5px 2px 24px;
+	font-size: 11px;
+	color: #575757;
+	margin-top:24px;
+	height: 19px; /* height of text-display area */
+}

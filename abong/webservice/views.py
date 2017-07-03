@@ -32,7 +32,16 @@ def urls_cidades(request, format=None):
     return Response(utils.get_urls_cidades(request=request, format=format))
 
 
-class ONGDetail(generics.RetrieveAPIView):
+@api_view(['GET'])
+def get_choices_cidades(request, estado):
+    """
+    Retorna os choices para determinado estado.
+    """
+    cidades = models.Cidade.objects.filter(estado__sigla=estado)
+    return Response(cidades.values_list('slug', 'nome'))
+
+
+class RetornaONG(generics.RetrieveAPIView):
     """
     Informações de uma ONG.
     """
@@ -40,7 +49,7 @@ class ONGDetail(generics.RetrieveAPIView):
     queryset = models.ONG.objects.all()
 
 
-class ONGList(generics.ListAPIView):
+class RetornaONGs(generics.ListAPIView):
     """
     Coleção de informações de uma ou mais ONGs.
     """
@@ -69,10 +78,33 @@ class ONGList(generics.ListAPIView):
             campos_ordenacao.pop(indice)
             campos_ordenacao.insert(indice, 'cidade__slug')
 
-        return queryset.order_by(*campos_ordenacao)
+        pesquisa = self.request.query_params.get('pesquisa')
+        if pesquisa:
+            queryset = (
+                queryset.filter(nome__icontains=pesquisa) |
+                queryset.filter(sigla__icontains=pesquisa)
+            )
+
+        pagina = int(self.request.query_params.get('pagina') or '1')
+
+        itens_por_pagina = \
+            int(self.request.query_params.get('itens-por-pagina') or '15')
+
+        limite_superior = pagina * itens_por_pagina
+        limite_inferior = limite_superior - itens_por_pagina
+
+        if campos_ordenacao:
+            queryset = queryset.order_by(*campos_ordenacao)
+        else:
+            queryset = queryset.order_by('pk')
+
+        queryset = queryset[limite_inferior:limite_superior]
+        return models.ONG.objects.filter(
+            pk__in=queryset.values_list('pk', flat=True)
+        )
 
 
-class ONGEstadoList(ONGList):
+class RetornaONGsEstado(RetornaONGs):
     """
     Retorna uma lista de ONGs, filtrada por estado.
     """
@@ -81,11 +113,11 @@ class ONGEstadoList(ONGList):
         """
         Sobrescrito para filtrar o queryset por estado.
         """
-        queryset = super(ONGEstadoList, self).get_queryset()
+        queryset = super(RetornaONGsEstado, self).get_queryset()
         return queryset.filter(estado__sigla=self.kwargs['estado'])
 
 
-class ONGEstadoCidadeList(ONGEstadoList):
+class RetornaONGsCidade(RetornaONGsEstado):
     """
     Retorna uma lista de ONGs, filtrada por estado e cidade.
     """
@@ -94,5 +126,5 @@ class ONGEstadoCidadeList(ONGEstadoList):
         """
         Sobrescrito para filtrar o queryset por estado e cidade.
         """
-        queryset = super(ONGEstadoCidadeList, self).get_queryset()
+        queryset = super(RetornaONGsCidade, self).get_queryset()
         return queryset.filter(cidade__slug=self.kwargs['cidade'])

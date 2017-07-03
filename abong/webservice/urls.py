@@ -17,19 +17,23 @@ urlpatterns = [
         view=views.urls_cidades,
         name='urls-cidades-list'),
 
+    url(regex=r'^choices_estado/(?P<estado>[\w]{2})/$',
+        view=views.get_choices_cidades,
+        name='get_choices_cidades'),
+
     url(regex=r'^ongs/$',
-        view=views.ONGList.as_view(),
+        view=views.RetornaONGs.as_view(),
         name='ongs-list'),
 
-    url(regex=r'^ongs/detail/(?P<pk>[\w]+)/$',
-        view=views.ONGDetail.as_view(),
+    url(regex=r'^ongs/(?P<pk>[\d]+)/$',
+        view=views.RetornaONG.as_view(),
         name='ongs-detail'),
 
-    url(regex=r'^ongs/(?P<estado>[\w]+)/$',
-        view=views.ONGEstadoList.as_view(),
+    url(regex=r'^ongs/(?P<estado>[\w]{2})/$',
+        view=views.RetornaONGsEstado.as_view(),
         name='ongs-estado-list'),
 
-    url(regex=r'^ongs/(?P<estado>[\w]+)/(?P<cidade>[\w\-]+)/$',
-        view=views.ONGEstadoCidadeList.as_view(),
+    url(regex=r'^ongs/(?P<estado>[\w]{2})/(?P<cidade>[\w\-]+)/$',
+        view=views.RetornaONGsCidade.as_view(),
         name='ongs-estado-cidade-list')
 ]

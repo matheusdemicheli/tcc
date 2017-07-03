@@ -5,24 +5,80 @@
 <head>
     <meta charset="UTF-8">
     <title>Serviço bancário</title>
-
+    <link rel="stylesheet" type="text/css" href="{% static 'doacao.css' %}">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-    <script type="text/javascript">
-        var buscar_dados = function(){
-            /* Busca os dados da Abong. */
-            $.ajax({
-                url: "https://127.0.0.1:8000/api/ongs/",
-                data: {},
-                success: function(dados){
-                    $('#conteudo').html(dados);
-                },
-            });
-        }
-        $( window ).load(buscar_dados);
-    </script>
+    <script type="text/javascript" src="{% static 'doacao.js' %}"></script>
 </head>
 <body>
-    <h1>Módulo de Doação Bancária</h1>
-    <section id="conteudo"></section>
+    <div class="menu">
+        <ul>
+          <li><a href="#">Página Inicial</a></li>
+          <li><a href="#">Conta Corrente</a></li>
+          <li><a href="#">Transações</a></li>
+          <li><a href="#">Investimentos</a></li>
+          <li><a href="#">Empréstimo</a></li>
+          <li><a href="#">Telefonia</a></li>
+          <li><a href="#" class="menu-doacoes">Doações</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Fale Conosco</a></li>
+        </ul>
+    </div>
+    <h2><center>Doações</center></h2>
+    <section id="ongs_filtros">
+        <fieldset>
+            <legend>Filtros</legend>
+            <p>
+                <label>Estado: </label>
+                <select id="ong_filtro_select_estado">
+                  <option value="">-------</option>
+                  <option value="ac">Acre</option>
+                  <option value="al">Alagoas</option>
+                  <option value="am">Amazonas</option>
+                  <option value="ap">Amapá</option>
+                  <option value="ba">Bahia</option>
+                  <option value="ce">Ceará</option>
+                  <option value="df">Distrito Federal</option>
+                  <option value="es">Espírito Santo</option>
+                  <option value="go">Goiás</option>
+                  <option value="ma">Maranhão</option>
+                  <option value="mg">Minas Gerais</option>
+                  <option value="ms">Mato Grosso do Sul</option>
+                  <option value="mt">Mato Grosso</option>
+                  <option value="pa">Pará</option>
+                  <option value="pb">Paraíba</option>
+                  <option value="pe">Pernambuco</option>
+                  <option value="pi">Piauí</option>
+                  <option value="pr">Paraná</option>
+                  <option value="rj">Rio de Janeiro</option>
+                  <option value="rn">Rio Grande do Norte</option>
+                  <option value="ro">Rondônia</option>
+                  <option value="rr">Roraima</option>
+                  <option value="rs">Rio Grande do Sul</option>
+                  <option value="sc">Santa Catarina</option>
+                  <option value="se">Sergipe</option>
+                  <option value="sp">São Paulo</option>
+                  <option value="to">Tocantins</option>
+                </select>
+            </p>
+            <p>
+                <label>Cidade: </label>
+                <select id="ong_filtro_select_cidade" class="not-active">
+                    <option value="">-------</option>
+                </select>
+                <div id="ong_carregando_select_cidade" class="display-none">
+                    <img src="{% static 'carregando.gif' %}">
+                </div>
+            </p>
+            <p>
+                <label>ONG: </label>
+                <input id="ong_filtro_nome" type="text" placeholder="Qual ONG você procura?">
+            </p>
+            <button id="ong_botao_filtrar">Buscar</button>
+        </fieldset>
+    </section>
+    <div id="ong_carregando" class="display-none">
+        <img src="{% static 'carregando.gif' %}">
+    </div>
+    <section id="ongs_conteudo"></section>
 </body>
 </html>
