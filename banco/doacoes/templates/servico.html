@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Serviço bancário</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'doacao.css' %}">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'doacao.js' %}"></script>
+</head>
+<body>
+    <div class="menu">
+        <ul>
+          <li><a href="#">Página Inicial</a></li>
+          <li><a href="#">Conta Corrente</a></li>
+          <li><a href="#">Transações</a></li>
+          <li><a href="#">Investimentos</a></li>
+          <li><a href="#">Empréstimo</a></li>
+          <li><a href="#">Telefonia</a></li>
+          <li><a href="{% url 'doacoes' %}" class="menu-doacoes">Doações</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Fale Conosco</a></li>
+        </ul>
+    </div>
+    <h2><center>Serviço Bancário</center></h2>
+</body>
+</html>

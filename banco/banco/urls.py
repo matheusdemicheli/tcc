@@ -1,5 +1,5 @@
 from django.conf.urls import include, url
-from doacoes.views import doacoes
+from doacoes.views import doacoes, servico
 #from django.contrib import admin
 
 # urlpatterns = patterns('',
@@ -10,6 +10,8 @@ from doacoes.views import doacoes
 #     url(r'^/doacoes/$', 'doacoes.views.doacoes' )
 # )
 
+
 urlpatterns = [
-    url(r'^doacoes/$', doacoes),
+    url(r'^$', servico),
+    url(r'^doacoes/$', doacoes, name='doacoes'),
 ]

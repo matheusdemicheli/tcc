@@ -3,6 +3,7 @@ var URL_BASE = "https://127.0.0.1:8000/api/ongs/";
 var buscar_dados = function(url){
     /* Busca os dados da Abong. */
     $('#ong_carregando').removeClass("display-none");
+    $('#ongs_conteudo').html('');
 
     $.ajax({
         url: url,
